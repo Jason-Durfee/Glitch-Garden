@@ -11,21 +11,28 @@ public class DefenderSpawner : MonoBehaviour {
     void Start() {
         gameManager = FindObjectOfType<GameManager>();
     }
-
-    // Update is called once per frame
-    void Update() {
-        if (Input.GetButtonUp("SpawnDefender") && gameManager) {
-            SpawnDefender();
+    private void OnMouseUp() {
+        if (gameManager) {
+            SpawnDefender(GetMousePosOnGrid());
         }
     }
-    private void SpawnDefender() {
-        bool[,] grid = gameManager.GetGrid();
+
+    private Vector2 GetMousePosOnGrid() {
         int xWorldPos = (int)(Camera.main.ScreenToWorldPoint(Input.mousePosition).x + 0.5f);
         int yWorldPos = (int)(Camera.main.ScreenToWorldPoint(Input.mousePosition).y + 0.5f);
-        if (xWorldPos < 8 && xWorldPos > 0 && yWorldPos > 0 && yWorldPos < 6 && !grid[xWorldPos - 1, yWorldPos - 1]) {
-            grid[xWorldPos - 1, yWorldPos - 1] = true;
+        return new Vector2(xWorldPos, yWorldPos);
+    }
+
+    private void SpawnDefender(Vector2 clickPoint) {
+        bool[,] grid = gameManager.GetGrid();
+        if (!grid[(int)clickPoint.x - 1, (int)clickPoint.y - 1]) {
+            grid[(int)clickPoint.x - 1, (int)clickPoint.y - 1] = true;
             gameManager.SetGrid(grid);
-            Instantiate(defender, new Vector3(xWorldPos, yWorldPos, 0), Quaternion.identity);
+            Instantiate(defender, clickPoint, Quaternion.identity);
         }
+    }
+
+    public void SetDefender(GameObject newDefender) {
+        defender = newDefender;
     }
 }

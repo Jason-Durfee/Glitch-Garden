@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour {
-    [Range(0, 5)]
-
     float moveSpeed;
     bool canMove = false;
     // Start is called before the first frame update

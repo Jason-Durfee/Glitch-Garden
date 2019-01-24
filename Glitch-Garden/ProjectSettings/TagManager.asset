@@ -7,6 +7,8 @@ TagManager:
   - Enemy
   - Defender
   - DefenderProjectile
+  - DefenderSelector
+  - DefenderButton
   layers:
   - Default
   - TransparentFX
