@@ -43,3 +43,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9519b18f0631fc34c93a49ab4708db02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentlyFilledGridX: 00000000
+  currentlyFilledGridY: 02000000

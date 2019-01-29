@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class DefenderButton : MonoBehaviour {
     [SerializeField] GameObject defenderObject;
+    [SerializeField] int defenderCost;
 
     GameObject defenderSelector;
     private void OnMouseUp() {
@@ -25,7 +26,7 @@ public class DefenderButton : MonoBehaviour {
             foreach (GameObject gameObj in buttons) {
                 SpriteRenderer tempSpriteRend = gameObj.GetComponent<SpriteRenderer>();
                 if (tempSpriteRend) {
-                    tempSpriteRend.color = new Color(0.25f, 0.25f, 0.25f);
+                    tempSpriteRend.color = new Color(0.43f, 0.43f, 0.43f);
                 }
             }
             SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
@@ -38,7 +39,7 @@ public class DefenderButton : MonoBehaviour {
     private void SetNewDefender() {
         DefenderSpawner spawner = FindObjectOfType<DefenderSpawner>();
         if (spawner && defenderObject) {
-            spawner.SetDefender(defenderObject);
+            spawner.SetDefender(defenderObject, defenderCost);
         }
     }
 }

@@ -242,7 +242,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 8e93dbc4a273f0b4296051b105665198, type: 3}
-  m_Color: {r: 0.2509804, g: 0.2509804, b: 0.2509804, a: 1}
+  m_Color: {r: 0.25, g: 0.25, b: 0.25, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -266,6 +266,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   defenderObject: {fileID: 6920706053714632767, guid: 1f91e6417d0f5a3438b3d47cfe2dea90,
     type: 3}
+  defenderCost: 50
 --- !u!61 &7941060315092863648
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -421,6 +422,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   defenderObject: {fileID: 403004949851069165, guid: 22f2d142043ac3649908c77ac153878e,
     type: 3}
+  defenderCost: 75
 --- !u!61 &3581135413543726857
 BoxCollider2D:
   m_ObjectHideFlags: 0
